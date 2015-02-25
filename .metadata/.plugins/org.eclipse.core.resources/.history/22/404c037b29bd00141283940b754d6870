@@ -1,0 +1,14 @@
+package travianFarmList;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class GenerateList extends JFrame
+{
+	public GenerateList()
+	{
+		JPanel pane = new JPanel(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+	}
+}
