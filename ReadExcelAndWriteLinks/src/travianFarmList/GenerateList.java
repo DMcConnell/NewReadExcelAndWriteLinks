@@ -28,11 +28,11 @@ public class GenerateList extends JFrame
 									 "&y=" + String.valueOf(points.get(i).getY())));
 		}
 		
-		JLabel label1 = new JLabel("X Coord");
-		JLabel label2 = new JLabel("Y Coord");
-		JLabel label3 = new JLabel("Village");
-		JLabel label4 = new JLabel("Account");
-		JLabel label5 = new JLabel("Link");
+		JButton label1 = new JButton("X Coord");
+		JButton label2 = new JButton("Y Coord");
+		JButton label3 = new JButton("Village");
+		JButton label4 = new JButton("Account");
+		JButton label5 = new JButton("Link");
 		
 		c.weightx = .25;
 		c.gridx = 0;
