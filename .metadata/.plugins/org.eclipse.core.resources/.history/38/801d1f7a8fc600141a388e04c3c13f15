@@ -40,7 +40,7 @@ public class GenerateList extends JFrame
 		c.weightx = .1;
 		c.gridx = 0;
 		c.gridy = 0;
-		//label1.setBorder(border);
+		label1.setBorder(border);
 		add(label1, c);
 		c.gridx = 1;
 		add(label2, c);

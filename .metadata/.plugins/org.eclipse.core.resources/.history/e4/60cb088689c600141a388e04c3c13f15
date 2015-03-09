@@ -55,7 +55,7 @@ public class MainGUI extends JFrame
 				go.setTitle("FarmList Helper V0.1");
 				go.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				go.setLocationRelativeTo(null);
-				go.setSize(750, 500);
+				go.setSize(300, 75);
 			}
 		}
 	}

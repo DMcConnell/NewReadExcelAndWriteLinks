@@ -1,11 +1,9 @@
 package travianFarmList;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
+import java.util.ArrayList;
 
 public class GenerateList extends JFrame
 {
@@ -20,7 +18,6 @@ public class GenerateList extends JFrame
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-		Border border = LineBorder.createGrayLineBorder();
 		
 		for(int i = 0; i < points.size(); i++)
 		{
@@ -37,19 +34,18 @@ public class GenerateList extends JFrame
 		JButton label4 = new JButton("Account");
 		JButton label5 = new JButton("Link");
 		
-		c.weightx = .1;
+		c.weightx = .25;
 		c.gridx = 0;
 		c.gridy = 0;
-		//label1.setBorder(border);
-		add(label1, c);
+		add(label1);
 		c.gridx = 1;
-		add(label2, c);
+		add(label2);
 		c.gridx = 2;
-		add(label3, c);
+		add(label3);
 		c.gridx = 3;
-		add(label4, c);
+		add(label4);
 		c.gridx = 4;
 		c.weightx = 1;
-		add(label5, c);
+		add(label5);
 	}
 }

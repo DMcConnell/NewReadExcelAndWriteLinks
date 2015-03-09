@@ -37,7 +37,7 @@ public class GenerateList extends JFrame
 		JButton label4 = new JButton("Account");
 		JButton label5 = new JButton("Link");
 		
-		c.weightx = .1;
+		//c.weightx = .1;
 		c.gridx = 0;
 		c.gridy = 0;
 		//label1.setBorder(border);
