@@ -75,5 +75,3 @@ public class GenerateList extends JFrame
 		}
 	}
 }
-
-//http://stackoverflow.com/questions/527719/how-to-add-hyperlink-in-jlabel

@@ -25,11 +25,11 @@ public class GenerateList extends JFrame
 		
 		for(int i = 0; i < points.size(); i++)
 		{
-			xLabels.add(new JTextField(String.valueOf((int)points.get(i).getX())));
-			yLabels.add(new JTextField(String.valueOf((int)points.get(i).getY())));
+			xLabels.add(new JTextField(String.valueOf(points.get(i).getX())));
+			yLabels.add(new JTextField(String.valueOf(points.get(i).getY())));
 			links.add(new JTextField("http://ts2.travian.us/karte.php?x=" +
-									 String.valueOf(((int)points.get(i).getX()) +
-									 "&y=" + String.valueOf((int)points.get(i).getY()))));
+									 String.valueOf(points.get(i).getX()) +
+									 "&y=" + String.valueOf(points.get(i).getY())));
 		}
 		
 		JLabel XLabel = new JLabel("X Coord", SwingConstants.CENTER);
@@ -49,7 +49,6 @@ public class GenerateList extends JFrame
 		add(XLabel, c);
 		c.gridx = 1;
 		add(YLabel, c);
-		c.weightx= .25;
 		c.gridx = 2;
 		add(VilLabel, c);
 		c.gridx = 3;
@@ -63,17 +62,12 @@ public class GenerateList extends JFrame
 			c.weightx = .1;
 			c.gridx = 0;
 			c.gridy = i+1;
-			xLabels.get(i).setBorder(GrayBorder);
 			add(xLabels.get(i), c);
 			c.gridx = 1;
-			yLabels.get(i).setBorder(GrayBorder);
 			add(yLabels.get(i), c);
 			c.gridx = 4;
 			c.weightx = 1;
-			links.get(i).setBorder(GrayBorder);
 			add(links.get(i), c);
 		}
 	}
 }
-
-//http://stackoverflow.com/questions/527719/how-to-add-hyperlink-in-jlabel

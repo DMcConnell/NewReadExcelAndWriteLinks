@@ -25,8 +25,8 @@ public class GenerateList extends JFrame
 		
 		for(int i = 0; i < points.size(); i++)
 		{
-			xLabels.add(new JTextField(String.valueOf((int)points.get(i).getX())));
-			yLabels.add(new JTextField(String.valueOf((int)points.get(i).getY())));
+			xLabels.add(new JTextField(String.valueOf(points.get(i).getX())));
+			yLabels.add(new JTextField(String.valueOf(points.get(i).getY())));
 			links.add(new JTextField("http://ts2.travian.us/karte.php?x=" +
 									 String.valueOf(((int)points.get(i).getX()) +
 									 "&y=" + String.valueOf((int)points.get(i).getY()))));
@@ -75,5 +75,3 @@ public class GenerateList extends JFrame
 		}
 	}
 }
-
-//http://stackoverflow.com/questions/527719/how-to-add-hyperlink-in-jlabel

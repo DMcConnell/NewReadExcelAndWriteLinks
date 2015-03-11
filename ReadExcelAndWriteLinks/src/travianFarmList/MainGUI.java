@@ -49,13 +49,16 @@ public class MainGUI extends JFrame
 			{
 				path = pathField.getText();
 				ReadExcel read = new ReadExcel(path);
-				dispose();
-				GenerateList go = new GenerateList();
-				go.setVisible(true);
-				go.setTitle("FarmList Helper V0.1");
-				go.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				go.setLocationRelativeTo(null);
-				go.setSize(750, 500);
+				if(read.getPoints().size() != 0)
+				{
+					dispose();
+					GenerateList go = new GenerateList();
+					go.setVisible(true);
+					go.setTitle("FarmList Helper V0.1");
+					go.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					go.setLocationRelativeTo(null);
+					go.setSize(750, 500);
+				}
 			}
 		}
 	}
