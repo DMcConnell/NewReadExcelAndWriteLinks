@@ -29,12 +29,11 @@ public class GenerateList extends JFrame
 		{
 			xLabels.add(new JLabel(String.valueOf((int)points.get(i).getX()), SwingConstants.CENTER));
 			yLabels.add(new JLabel(String.valueOf((int)points.get(i).getY()), SwingConstants.CENTER));
-			villages.add(new JLabel("-", SwingConstants.CENTER));
-			accounts.add(new JLabel("-", SwingConstants.CENTER));
-			links.add(new JLabel("<html><a href = \"\">http://ts2.travian.us/karte.php?x=" +
+			villages.add(new JLabel(""), SwingConstants.CENTER);
+			accounts.add(new JLabel(""), SwingConstants.CENTER);
+			links.add(new JLabel("http://ts2.travian.us/karte.php?x=" +
 									 String.valueOf(((int)points.get(i).getX()) +
-									 "&y=" + String.valueOf((int)points.get(i).getY()))
-									 + "</a></html>", SwingConstants.CENTER));
+									 "&y=" + String.valueOf((int)points.get(i).getY())), SwingConstants.CENTER));
 		}
 		
 		JLabel XLabel = new JLabel("X Coord", SwingConstants.CENTER);
@@ -48,15 +47,19 @@ public class GenerateList extends JFrame
 		JLabel LinkLabel = new JLabel("Link", SwingConstants.CENTER);
 		LinkLabel.setBorder(BlackBorder);
 		
-		c.weightx = .1; c.gridx = 0; c.gridy = 0;
+		c.weightx = .1;
+		c.gridx = 0;
+		c.gridy = 0;
 		add(XLabel, c);
 		c.gridx = 1;
 		add(YLabel, c);
-		c.weightx= .25; c.gridx = 2;
+		c.weightx= .25;
+		c.gridx = 2;
 		add(VilLabel, c);
 		c.gridx = 3;
 		add(AccLabel, c);
-		c.gridx = 4; c.weightx = 1;
+		c.gridx = 4;
+		c.weightx = 1;
 		add(LinkLabel, c);
 		
 		for(int i = 0; i < xLabels.size(); i++)
