@@ -6,9 +6,6 @@ import javax.swing.border.LineBorder;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.*;
 
 public class GenerateList extends JFrame
@@ -17,40 +14,6 @@ public class GenerateList extends JFrame
 	
 	public GenerateList()
 	{
-		class MouseAdapter implements MouseListener
-		{
-			String link;
-			
-			public void mouseClicked(MouseEvent e)
-			{
-				try {
-                    Desktop.getDesktop().browse(new URI(link));
-                } catch (URISyntaxException | IOException ex) {
-                    //It looks like there's a problem
-                }
-			}
-			
-			public void setLink(String link)
-			{
-				this.link = link;
-			}
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub	
-			}			
-		}
-		
 		points = ReadExcel.getPoints();
 		ArrayList<JLabel> xLabels = new ArrayList<JLabel>();
 		ArrayList<JLabel> yLabels = new ArrayList<JLabel>();
@@ -99,8 +62,6 @@ public class GenerateList extends JFrame
 		
 		for(int i = 0; i < xLabels.size(); i++)
 		{
-			MouseAdapter mouse = new MouseAdapter();
-			
 			c.weightx = .1;
 			c.gridx = 0;
 			c.gridy = i+1;
@@ -117,16 +78,10 @@ public class GenerateList extends JFrame
 			add(villages.get(i), c);
 			c.gridx = 4;
 			c.weightx = 1;
-			mouse.setLink(unformat(links.get(i).getText()));
 			links.get(i).setBorder(GrayBorder);
 			links.get(i).setCursor(new Cursor(Cursor.HAND_CURSOR));
-			links.get(i).addMouseListener(mouse);
+			links.get(i).addMouseListener(new MouseAdapter());
 			add(links.get(i), c);
 		}
-	}
-	public String unformat(String formatted)
-	{
-		formatted = formatted.substring(19);
-		return formatted.substring(0, formatted.indexOf("<"));
 	}
 }

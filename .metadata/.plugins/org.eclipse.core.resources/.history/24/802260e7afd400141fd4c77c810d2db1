@@ -62,6 +62,7 @@ public class GenerateList extends JFrame
 		c.fill = GridBagConstraints.HORIZONTAL;
 		Border BlackBorder = LineBorder.createBlackLineBorder();
 		Border GrayBorder = LineBorder.createGrayLineBorder();
+		MouseAdapter mouse = new MouseAdapter();
 		
 		for(int i = 0; i < points.size(); i++)
 		{
@@ -99,8 +100,6 @@ public class GenerateList extends JFrame
 		
 		for(int i = 0; i < xLabels.size(); i++)
 		{
-			MouseAdapter mouse = new MouseAdapter();
-			
 			c.weightx = .1;
 			c.gridx = 0;
 			c.gridy = i+1;
@@ -117,7 +116,8 @@ public class GenerateList extends JFrame
 			add(villages.get(i), c);
 			c.gridx = 4;
 			c.weightx = 1;
-			mouse.setLink(unformat(links.get(i).getText()));
+			System.out.println(unformat(links.get(i).getText()));
+			mouse.setLink(links.get(i).getText());
 			links.get(i).setBorder(GrayBorder);
 			links.get(i).setCursor(new Cursor(Cursor.HAND_CURSOR));
 			links.get(i).addMouseListener(mouse);
@@ -126,7 +126,11 @@ public class GenerateList extends JFrame
 	}
 	public String unformat(String formatted)
 	{
-		formatted = formatted.substring(19);
-		return formatted.substring(0, formatted.indexOf("<"));
+		String unformatted;
+		int foundHere;
+		
+		foundHere = formatted.indexOf("<");
+		unformatted = formatted.substring(19, foundHere);
+		return unformatted;
 	}
 }
