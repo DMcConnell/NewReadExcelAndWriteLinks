@@ -7,14 +7,15 @@ import java.awt.event.*;
 
 public class parseSource extends JFrame
 {
+	JButton run, exit;
+	JTextField text;
+	
 	public parseSource()
 	{
 		event listener = new event();
 		
 		JPanel main, flow;
 		JLabel expla;
-		JTextField text;
-		JButton run, exit;
 		
 		main = new JPanel();
 		main.setLayout(new BorderLayout());
@@ -40,21 +41,12 @@ public class parseSource extends JFrame
 		{
 			Object source = e.getSource();
 			if(source == exit)
-				System.exit(99);
-			else if(source == run)
 			{
-				path = pathField.getText();
-				ReadExcel read = new ReadExcel(path);
-				if(read.getPoints().size() != 0)
-				{
-					dispose();
-					GenerateList go = new GenerateList();
-					go.setVisible(true);
-					go.setTitle("FarmList Helper V0.1");
-					go.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					go.setLocationRelativeTo(null);
-					go.setSize(750, 500);
-				}
+				System.exit(99);
+			}
+			else
+			{
+				ReadSource read = new ReadSource(text.getText());
 			}
 		}
 	}
