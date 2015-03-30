@@ -13,19 +13,21 @@ public class ReadSource
 		source = source.substring(source.indexOf("<span class='koord'>"),source.indexOf("</table></div"));
 		while(stillTrue)
 		{
-			int x, y, check;
+			int x, y, placeX, placeY, check;
 			
-			x = Integer.parseInt(source.substring(50,source.indexOf("</span></span>")));
+			placeX = source.indexOf("</span></span>");
+			placeY = source.indexOf("( <span>");
+			if(placeX == -1 || placeY == -1)
+				break;
+			x = Integer.parseInt(source.substring(placeY + 8,placeX));
+			System.out.print(x);
 			source = source.substring(source.indexOf("<span class='koordk2'>"));
 			y = Integer.parseInt(source.substring(28,source.indexOf("</span> )")));
+			System.out.print("  " + y + "\n");
 			check = source.indexOf("<span class='koord'>");
-			System.out.println(check + "  ");
 			if(check == -1)
 				break;
 			source = source.substring(check);
-			points.add(new Point((double)x,(double)y));
 		}
-		for(int x = 0; x < points.size(); x++)
-			System.out.println(points.get(x));
 	}
 }

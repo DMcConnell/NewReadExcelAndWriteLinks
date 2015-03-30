@@ -19,7 +19,6 @@ public class ReadSource
 			source = source.substring(source.indexOf("<span class='koordk2'>"));
 			y = Integer.parseInt(source.substring(28,source.indexOf("</span> )")));
 			check = source.indexOf("<span class='koord'>");
-			System.out.println(check + "  ");
 			if(check == -1)
 				break;
 			source = source.substring(check);

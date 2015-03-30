@@ -89,7 +89,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_MM5qTruWEeSziZ_KYnBclg" elementId="org.eclipse.egit.ui.RepositoriesView" toBeRendered="false" ref="_MM4cILuWEeSziZ_KYnBclg"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_MM5qT7uWEeSziZ_KYnBclg" containerData="8243" selectedElement="_MM5qULuWEeSziZ_KYnBclg">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_MM5qT7uWEeSziZ_KYnBclg" containerData="8243" selectedElement="_MM5qWbuWEeSziZ_KYnBclg">
               <children xsi:type="basic:PartSashContainer" xmi:id="_MM5qULuWEeSziZ_KYnBclg" containerData="7500" selectedElement="_MM5qUbuWEeSziZ_KYnBclg" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_MM5qUbuWEeSziZ_KYnBclg" elementId="org.eclipse.ui.editorss" containerData="7434" ref="_MMsO4LuWEeSziZ_KYnBclg"/>
                 <children xsi:type="basic:PartSashContainer" xmi:id="_MM5qUruWEeSziZ_KYnBclg" containerData="2566" selectedElement="_MM5qU7uWEeSziZ_KYnBclg">
@@ -109,6 +109,7 @@
               <children xsi:type="basic:PartStack" xmi:id="_MM5qWbuWEeSziZ_KYnBclg" elementId="bottom" containerData="2500" selectedElement="_MM5qXruWEeSziZ_KYnBclg">
                 <tags>newtablook</tags>
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_MM5qWruWEeSziZ_KYnBclg" elementId="org.eclipse.ui.views.ProblemView" ref="_MMzjobuWEeSziZ_KYnBclg"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_MM5qW7uWEeSziZ_KYnBclg" elementId="org.eclipse.jdt.ui.JavadocView" ref="_MMzjoruWEeSziZ_KYnBclg"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_MM5qXLuWEeSziZ_KYnBclg" elementId="org.eclipse.jdt.ui.SourceView" ref="_MMzjo7uWEeSziZ_KYnBclg"/>
@@ -146,18 +147,15 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_MMsO4LuWEeSziZ_KYnBclg" elementId="org.eclipse.ui.editorss" selectedElement="_MMs18LuWEeSziZ_KYnBclg">
-      <children xsi:type="basic:PartStack" xmi:id="_MMs18LuWEeSziZ_KYnBclg" elementId="org.eclipse.e4.primaryDataStack" selectedElement="__zMQkL0fEeSVPJkkwniNJw">
+      <children xsi:type="basic:PartStack" xmi:id="_MMs18LuWEeSziZ_KYnBclg" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_jonAgNThEeSfx5TihfeJcw">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="__zMQkL0fEeSVPJkkwniNJw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="MainGUI.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MainGUI.java&quot; partName=&quot;MainGUI.java&quot; title=&quot;MainGUI.java&quot; tooltip=&quot;ReadExcelAndWriteLinks/src/travianFarmList/MainGUI.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ReadExcelAndWriteLinks/src/travianFarmList/MainGUI.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;738&quot; selectionTopPixel=&quot;180&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MainGUI.java&quot; partName=&quot;MainGUI.java&quot; title=&quot;MainGUI.java&quot; tooltip=&quot;ReadExcelAndWriteLinks/src/travianFarmList/MainGUI.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ReadExcelAndWriteLinks/src/travianFarmList/MainGUI.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;686&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_76iSEL0hEeSVPJkkwniNJw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="GenerateList.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;GenerateList.java&quot; partName=&quot;GenerateList.java&quot; title=&quot;GenerateList.java&quot; tooltip=&quot;ReadExcelAndWriteLinks/src/travianFarmList/GenerateList.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ReadExcelAndWriteLinks/src/travianFarmList/GenerateList.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3235&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -172,13 +170,13 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_jonAgNThEeSfx5TihfeJcw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ReadSource.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ReadSource.java&quot; partName=&quot;ReadSource.java&quot; title=&quot;ReadSource.java&quot; tooltip=&quot;ReadExcelAndWriteLinks/src/travianFarmList/ReadSource.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ReadExcelAndWriteLinks/src/travianFarmList/ReadSource.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;179&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ReadSource.java&quot; partName=&quot;ReadSource.java&quot; title=&quot;ReadSource.java&quot; tooltip=&quot;ReadExcelAndWriteLinks/src/travianFarmList/ReadSource.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ReadExcelAndWriteLinks/src/travianFarmList/ReadSource.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;314&quot; selectionTopPixel=&quot;64&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_tIJdENThEeSfx5TihfeJcw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Point.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Point.java&quot; partName=&quot;Point.java&quot; title=&quot;Point.java&quot; tooltip=&quot;ReadExcelAndWriteLinks/src/travianFarmList/Point.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ReadExcelAndWriteLinks/src/travianFarmList/Point.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Point.java&quot; partName=&quot;Point.java&quot; title=&quot;Point.java&quot; tooltip=&quot;ReadExcelAndWriteLinks/src/travianFarmList/Point.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/ReadExcelAndWriteLinks/src/travianFarmList/Point.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;19&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -233,6 +231,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_ZUPLUNStEeS8DvZnknbr_A" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -307,7 +307,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_MFrn8LuWEeSziZ_KYnBclg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_nVvrgNTfEeSfx5TihfeJcw" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_L4ZaFLuWEeSziZ_KYnBclg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_sW_Ql9XLEeSwaIFNKB7IcQ" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_L4ZaFLuWEeSziZ_KYnBclg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_MFsPALuWEeSziZ_KYnBclg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -331,7 +331,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_MFs2ELuWEeSziZ_KYnBclg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_nV41cNTfEeSfx5TihfeJcw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_L4Yy17uWEeSziZ_KYnBclg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_sXFXOdXLEeSwaIFNKB7IcQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_L4Yy17uWEeSziZ_KYnBclg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_MFs2EbuWEeSziZ_KYnBclg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

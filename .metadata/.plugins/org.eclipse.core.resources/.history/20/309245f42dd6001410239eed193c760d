@@ -16,16 +16,14 @@ public class ReadSource
 			int x, y, check;
 			
 			x = Integer.parseInt(source.substring(50,source.indexOf("</span></span>")));
+			System.out.print(x);
 			source = source.substring(source.indexOf("<span class='koordk2'>"));
 			y = Integer.parseInt(source.substring(28,source.indexOf("</span> )")));
+			System.out.print("  " + y + "\n");
 			check = source.indexOf("<span class='koord'>");
-			System.out.println(check + "  ");
 			if(check == -1)
 				break;
 			source = source.substring(check);
-			points.add(new Point((double)x,(double)y));
 		}
-		for(int x = 0; x < points.size(); x++)
-			System.out.println(points.get(x));
 	}
 }
