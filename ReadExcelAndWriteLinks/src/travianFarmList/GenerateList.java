@@ -51,7 +51,7 @@ public class GenerateList extends JFrame
 			}			
 		}
 		
-		points = ReadExcel.getPoints();
+		points = ReadSource.getPoints();
 		ArrayList<JLabel> xLabels = new ArrayList<JLabel>();
 		ArrayList<JLabel> yLabels = new ArrayList<JLabel>();
 		ArrayList<JLabel> links = new ArrayList<JLabel>();
@@ -69,7 +69,7 @@ public class GenerateList extends JFrame
 			yLabels.add(new JLabel(String.valueOf((int)points.get(i).getY()), SwingConstants.CENTER));
 			villages.add(new JLabel("-", SwingConstants.CENTER));
 			accounts.add(new JLabel("-", SwingConstants.CENTER));
-			links.add(new JLabel("<html><a href = \"\">http://ts2.travian.us/karte.php?x=" +
+			links.add(new JLabel("<html><a href = \"\">http://ts1.travian.us/karte.php?x=" +
 									 String.valueOf(((int)points.get(i).getX()) +
 									 "&y=" + String.valueOf((int)points.get(i).getY()))
 									 + "</a></html>", SwingConstants.CENTER));

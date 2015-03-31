@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ReadSource
 {
-	ArrayList<Point> points = new ArrayList<Point>();
+	static ArrayList<Point> points = new ArrayList<Point>();
 	
 	public ReadSource(String source)
 	{
@@ -19,13 +19,15 @@ public class ReadSource
 			source = source.substring(source.indexOf("<span class='koordk2'>"));
 			y = Integer.parseInt(source.substring(28,source.indexOf("</span> )")));
 			check = source.indexOf("<span class='koord'>");
-			System.out.println(check + "  ");
+			points.add(new Point((double)x,(double)y));
 			if(check == -1)
 				break;
 			source = source.substring(check);
-			points.add(new Point((double)x,(double)y));
 		}
-		for(int x = 0; x < points.size(); x++)
-			System.out.println(points.get(x));
+	}
+	
+	public static ArrayList<Point> getPoints()
+	{
+		return points;
 	}
 }
