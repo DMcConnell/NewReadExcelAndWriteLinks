@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
+import travianFarmList.parseSource.event;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -51,13 +53,37 @@ public class GenerateList extends JFrame
 			}			
 		}
 		
+		class event implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				for(int i = 0; i < points.size(); i += 0)
+					points.remove(0);
+				dispose();
+				parseSource startOver = new parseSource();
+				startOver.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				startOver.pack();
+				startOver.setTitle("FarmList Helper V0.1");
+				startOver.setVisible(true);
+				startOver.setLocationRelativeTo(null);
+			}
+		}
+		
+		event listener = new event();
 		points = ReadSource.getPoints();
 		ArrayList<JLabel> xLabels = new ArrayList<JLabel>();
 		ArrayList<JLabel> yLabels = new ArrayList<JLabel>();
 		ArrayList<JLabel> links = new ArrayList<JLabel>();
 		ArrayList<JLabel> villages = new ArrayList<JLabel>();
 		ArrayList<JLabel> accounts = new ArrayList<JLabel>();
-		setLayout(new GridBagLayout());
+		JPanel top, middle, bottom;
+		JButton restart = new JButton("return");
+		restart.addActionListener(listener);
+		middle = new JPanel();
+		middle.setLayout(new GridBagLayout());
+		bottom = new JPanel();
+		bottom.setLayout(new FlowLayout());
+		setLayout(new BorderLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		Border BlackBorder = LineBorder.createBlackLineBorder();
@@ -87,15 +113,15 @@ public class GenerateList extends JFrame
 		LinkLabel.setBorder(BlackBorder);
 		
 		c.weightx = .1; c.gridx = 0; c.gridy = 0;
-		add(XLabel, c);
+		middle.add(XLabel, c);
 		c.gridx = 1;
-		add(YLabel, c);
+		middle.add(YLabel, c);
 		c.weightx= .25; c.gridx = 2;
-		add(VilLabel, c);
+		middle.add(VilLabel, c);
 		c.gridx = 3;
-		add(AccLabel, c);
+		middle.add(AccLabel, c);
 		c.gridx = 4; c.weightx = 1;
-		add(LinkLabel, c);
+		middle.add(LinkLabel, c);
 		
 		for(int i = 0; i < xLabels.size(); i++)
 		{
@@ -105,24 +131,28 @@ public class GenerateList extends JFrame
 			c.gridx = 0;
 			c.gridy = i+1;
 			xLabels.get(i).setBorder(GrayBorder);
-			add(xLabels.get(i), c);
+			middle.add(xLabels.get(i), c);
 			c.gridx = 1;
 			yLabels.get(i).setBorder(GrayBorder);
-			add(yLabels.get(i), c);
+			middle.add(yLabels.get(i), c);
 			c.gridx = 2;
 			accounts.get(i).setBorder(GrayBorder);
-			add(accounts.get(i), c);
+			middle.add(accounts.get(i), c);
 			c.gridx = 3;
 			villages.get(i).setBorder(GrayBorder);
-			add(villages.get(i), c);
+			middle.add(villages.get(i), c);
 			c.gridx = 4;
 			c.weightx = 1;
 			mouse.setLink(unformat(links.get(i).getText()));
 			links.get(i).setBorder(GrayBorder);
 			links.get(i).setCursor(new Cursor(Cursor.HAND_CURSOR));
 			links.get(i).addMouseListener(mouse);
-			add(links.get(i), c);
+			middle.add(links.get(i), c);
 		}
+		JScrollPane scroll = new JScrollPane(middle);
+		add(scroll, BorderLayout.CENTER);
+		bottom.add(restart);
+		add(bottom, BorderLayout.SOUTH);
 	}
 	public String unformat(String formatted)
 	{

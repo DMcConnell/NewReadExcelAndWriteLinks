@@ -14,7 +14,7 @@ public class ErrorGUI extends JFrame
 	public ErrorGUI(String problem)
 	{
 		event listener = new event();
-		errorMessage = new JLabel(problem);
+		errorMessage = new JLabel(problem, SwingConstants.CENTER);
 		button = new JButton("Okay");
 		button.addActionListener(listener);
 		panel = new JPanel();

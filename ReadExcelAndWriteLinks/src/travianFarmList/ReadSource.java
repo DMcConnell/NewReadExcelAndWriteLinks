@@ -1,5 +1,7 @@
 package travianFarmList;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -18,12 +20,23 @@ public class ReadSource
 		catch(Exception e)
 		{
 			stillTrue = false;
-			ErrorGUI error1 = new ErrorGUI("   The page source you copied in could not be analyzed.   ");
+			ErrorGUI error1 = new ErrorGUI("The page source you copied in could not be analyzed.");
 			error1.setVisible(true);
 			error1.setTitle("Error");
 			error1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			error1.setLocationRelativeTo(null);
-			error1.pack();
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		    Dimension frameSize = error1.getSize();
+		    if (frameSize.height > screenSize.height)
+		    {
+		    	frameSize.height = screenSize.height;
+		    }
+		    if (frameSize.width > screenSize.width)
+		    {
+		    	frameSize.width = screenSize.width;
+		    }
+		    error1.setLocation((screenSize.width - frameSize.width) / 2 - 175,
+	                (screenSize.height - frameSize.height) / 2 - 50);
+			error1.setSize(350,100);
 		}
 		while(stillTrue)
 		{

@@ -46,27 +46,29 @@ public class parseSource extends JFrame
 			}
 			else
 			{
-				dispose();
+
 				ReadSource read = new ReadSource(text.getText());
-				GenerateList gui = new GenerateList();
-				
-				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-			    Dimension frameSize = gui.getSize();
-			    if (frameSize.height > screenSize.height)
-			    {
-			    	frameSize.height = screenSize.height;
-			    }
-			    if (frameSize.width > screenSize.width)
-			    {
-			    	frameSize.width = screenSize.width;
-			    }
-				
-				gui.setVisible(true);
-				gui.setTitle("FarmList Helper V0.1");
-				gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				gui.setLocation((screenSize.width - frameSize.width) / 2 - 400,
-		                (screenSize.height - frameSize.height) / 2 -200);
-				gui.setSize(800,400);
+				if(ReadSource.points.size() >= 1)
+				{
+					dispose();
+					GenerateList gui = new GenerateList();
+					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+				    Dimension frameSize = gui.getSize();
+				    if (frameSize.height > screenSize.height)
+				    {
+				    	frameSize.height = screenSize.height;
+				    }
+				    if (frameSize.width > screenSize.width)
+				    {
+				    	frameSize.width = screenSize.width;
+				    }
+					gui.setVisible(true);
+					gui.setTitle("FarmList Helper V0.1");
+					gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					gui.setLocation((screenSize.width - frameSize.width) / 2 - 400,
+			                (screenSize.height - frameSize.height) / 2 -200);
+					gui.setSize(800,400);
+				}
 			}
 		}
 	}
