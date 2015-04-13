@@ -1,0 +1,172 @@
+package travianFarmList;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
+import travianFarmList.parseSource.event;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.*;
+
+public class GenerateList extends JFrame
+{
+	ArrayList<Village> villages;
+	JButton restart = new JButton("Return");
+	JButton exit = new JButton("Exit");
+	
+	public GenerateList()
+	{
+		class MouseAdapter implements MouseListener
+		{
+			String link;
+			
+			public void mouseClicked(MouseEvent e)
+			{
+				try {
+                    Desktop.getDesktop().browse(new URI(link));
+                } catch (URISyntaxException | IOException ex) {
+                    //It looks like there's a problem
+                }
+			}
+			
+			public void setLink(String link)
+			{
+				this.link = link;
+			}
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub	
+			}			
+		}
+		
+		class event implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				Object source = e.getSource();
+				if(source == restart)
+				{
+					for(int i = 0; i < villages.size(); i += 0)
+						villages.remove(0);
+					dispose();
+					parseSource startOver = new parseSource();
+					startOver.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					startOver.pack();
+					startOver.setTitle("FarmList Helper V0.1");
+					startOver.setVisible(true);
+					startOver.setLocationRelativeTo(null);
+				}
+				else
+					System.exit(99);
+			}
+		}
+		
+		event listener = new event();
+		villages = ReadSource.getVillages();
+		ArrayList<JLabel> xLabels = new ArrayList<JLabel>();
+		ArrayList<JLabel> yLabels = new ArrayList<JLabel>();
+		ArrayList<JLabel> links = new ArrayList<JLabel>();
+		ArrayList<JLabel> villages = new ArrayList<JLabel>();
+		ArrayList<JLabel> accounts = new ArrayList<JLabel>();
+		JPanel top, middle, bottom;
+		exit.addActionListener(listener);
+		restart.addActionListener(listener);
+		middle = new JPanel();
+		middle.setLayout(new GridBagLayout());
+		bottom = new JPanel();
+		bottom.setLayout(new FlowLayout());
+		setLayout(new BorderLayout());
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		Border BlackBorder = LineBorder.createBlackLineBorder();
+		Border GrayBorder = LineBorder.createGrayLineBorder();
+		
+		for(int i = 0; i < villages.size(); i++)
+		{
+			xLabels.add(new JLabel(String.valueOf(villages.get(i).getX()), SwingConstants.CENTER));
+			yLabels.add(new JLabel(String.valueOf(villages.get(i).getY()), SwingConstants.CENTER));
+			villages.add(new JLabel("-", SwingConstants.CENTER));
+			accounts.add(new JLabel("-", SwingConstants.CENTER));
+			links.add(new JLabel("<html><a href = \"\">http://ts1.travian.us/karte.php?x=" +
+									 String.valueOf((villages.get(i).getX()) +
+									 "&y=" + String.valueOf(villages.get(i).getY()))
+									 + "</a></html>", SwingConstants.CENTER));
+		}
+		
+		JLabel XLabel = new JLabel("X Coord", SwingConstants.CENTER);
+		XLabel.setBorder(BlackBorder);
+		JLabel YLabel = new JLabel("Y Coord", SwingConstants.CENTER);
+		YLabel.setBorder(BlackBorder);
+		JLabel VilLabel = new JLabel("Village", SwingConstants.CENTER);
+		VilLabel.setBorder(BlackBorder);
+		JLabel AccLabel = new JLabel("Account", SwingConstants.CENTER);
+		AccLabel.setBorder(BlackBorder);
+		JLabel LinkLabel = new JLabel("Link", SwingConstants.CENTER);
+		LinkLabel.setBorder(BlackBorder);
+		
+		c.weightx = .1; c.gridx = 0; c.gridy = 0;
+		middle.add(XLabel, c);
+		c.gridx = 1;
+		middle.add(YLabel, c);
+		c.weightx= .25; c.gridx = 2;
+		middle.add(VilLabel, c);
+		c.gridx = 3;
+		middle.add(AccLabel, c);
+		c.gridx = 4; c.weightx = 1;
+		middle.add(LinkLabel, c);
+		
+		for(int i = 0; i < xLabels.size(); i++)
+		{
+			MouseAdapter mouse = new MouseAdapter();
+			
+			c.weightx = .1;
+			c.gridx = 0;
+			c.gridy = i+1;
+			xLabels.get(i).setBorder(GrayBorder);
+			middle.add(xLabels.get(i), c);
+			c.gridx = 1;
+			yLabels.get(i).setBorder(GrayBorder);
+			middle.add(yLabels.get(i), c);
+			c.gridx = 2;
+			accounts.get(i).setBorder(GrayBorder);
+			middle.add(accounts.get(i), c);
+			c.gridx = 3;
+			villages.get(i).setBorder(GrayBorder);
+			middle.add(villages.get(i), c);
+			c.gridx = 4;
+			c.weightx = 1;
+			mouse.setLink(unformat(links.get(i).getText()));
+			links.get(i).setBorder(GrayBorder);
+			links.get(i).setCursor(new Cursor(Cursor.HAND_CURSOR));
+			links.get(i).addMouseListener(mouse);
+			middle.add(links.get(i), c);
+		}
+		JScrollPane scroll = new JScrollPane(middle);
+		//scroll.setBorder(BorderFactory.createEmptyBorder());
+		add(scroll, BorderLayout.CENTER);
+		bottom.add(restart);
+		bottom.add(exit);
+		add(bottom, BorderLayout.SOUTH);
+	}
+	public String unformat(String formatted)
+	{
+		formatted = formatted.substring(19);
+		return formatted.substring(0, formatted.indexOf("<"));
+	}
+}

@@ -15,7 +15,9 @@ import java.util.*;
 
 public class GenerateList extends JFrame
 {
-	ArrayList<Point> points;
+	ArrayList<Village> villages;
+	JButton restart = new JButton("Return");
+	JButton exit = new JButton("Exit");
 	
 	public GenerateList()
 	{
@@ -57,28 +59,50 @@ public class GenerateList extends JFrame
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				for(int i = 0; i < points.size(); i += 0)
-					points.remove(0);
-				dispose();
-				parseSource startOver = new parseSource();
-				startOver.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				startOver.pack();
-				startOver.setTitle("FarmList Helper V0.1");
-				startOver.setVisible(true);
-				startOver.setLocationRelativeTo(null);
+				Object source = e.getSource();
+				if(source == restart)
+				{
+					for(int i = 0; i < villages.size(); i += 0)
+						villages.remove(0);
+					dispose();
+					parseSource startOver = new parseSource();
+					startOver.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					startOver.pack();
+					startOver.setTitle("FarmList Helper V0.1");
+					startOver.setVisible(true);
+					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+				    Dimension frameSize = startOver.getSize();
+				    if (frameSize.height > screenSize.height)
+				    {
+				    	frameSize.height = screenSize.height;
+				    }
+				    if (frameSize.width > screenSize.width)
+				    {
+				    	frameSize.width = screenSize.width;
+				    }
+				    startOver.setLocation((screenSize.width - frameSize.width) / 2 - 153,
+			                (screenSize.height - frameSize.height) / 2 - 140);
+					startOver.setSize(306,280);
+				}
+				else
+					System.exit(99);
 			}
 		}
 		
 		event listener = new event();
-		points = ReadSource.getPoints();
+		villages = ReadSource.getVillages();
 		ArrayList<JLabel> xLabels = new ArrayList<JLabel>();
 		ArrayList<JLabel> yLabels = new ArrayList<JLabel>();
 		ArrayList<JLabel> links = new ArrayList<JLabel>();
-		ArrayList<JLabel> villages = new ArrayList<JLabel>();
+		ArrayList<JLabel> villageNames = new ArrayList<JLabel>();
 		ArrayList<JLabel> accounts = new ArrayList<JLabel>();
 		JPanel top, middle, bottom;
-		JButton restart = new JButton("return");
+		JLabel title = new JLabel("<html><font size='20'>\nInactive Villages to add to your "
+				+ "Farmlist:</font></html>", SwingConstants.CENTER);
+		exit.addActionListener(listener);
 		restart.addActionListener(listener);
+		top = new JPanel();
+		top.setLayout(new FlowLayout());
 		middle = new JPanel();
 		middle.setLayout(new GridBagLayout());
 		bottom = new JPanel();
@@ -89,15 +113,15 @@ public class GenerateList extends JFrame
 		Border BlackBorder = LineBorder.createBlackLineBorder();
 		Border GrayBorder = LineBorder.createGrayLineBorder();
 		
-		for(int i = 0; i < points.size(); i++)
+		for(int i = 0; i < villages.size(); i++)
 		{
-			xLabels.add(new JLabel(String.valueOf((int)points.get(i).getX()), SwingConstants.CENTER));
-			yLabels.add(new JLabel(String.valueOf((int)points.get(i).getY()), SwingConstants.CENTER));
-			villages.add(new JLabel("-", SwingConstants.CENTER));
-			accounts.add(new JLabel("-", SwingConstants.CENTER));
+			xLabels.add(new JLabel(String.valueOf(villages.get(i).getX()), SwingConstants.CENTER));
+			yLabels.add(new JLabel(String.valueOf(villages.get(i).getY()), SwingConstants.CENTER));
+			villageNames.add(new JLabel(villages.get(i).getCity(), SwingConstants.CENTER));
+			accounts.add(new JLabel(villages.get(i).getPlayer(), SwingConstants.CENTER));
 			links.add(new JLabel("<html><a href = \"\">http://ts1.travian.us/karte.php?x=" +
-									 String.valueOf(((int)points.get(i).getX()) +
-									 "&y=" + String.valueOf((int)points.get(i).getY()))
+									 String.valueOf((villages.get(i).getX()) +
+									 "&y=" + String.valueOf(villages.get(i).getY()))
 									 + "</a></html>", SwingConstants.CENTER));
 		}
 		
@@ -137,10 +161,10 @@ public class GenerateList extends JFrame
 			middle.add(yLabels.get(i), c);
 			c.gridx = 2;
 			accounts.get(i).setBorder(GrayBorder);
-			middle.add(accounts.get(i), c);
+			middle.add(villageNames.get(i), c);
 			c.gridx = 3;
-			villages.get(i).setBorder(GrayBorder);
-			middle.add(villages.get(i), c);
+			villageNames.get(i).setBorder(GrayBorder);
+			middle.add(accounts.get(i), c);
 			c.gridx = 4;
 			c.weightx = 1;
 			mouse.setLink(unformat(links.get(i).getText()));
@@ -149,9 +173,13 @@ public class GenerateList extends JFrame
 			links.get(i).addMouseListener(mouse);
 			middle.add(links.get(i), c);
 		}
+		top.add(title);
+		add(top, BorderLayout.NORTH);
 		JScrollPane scroll = new JScrollPane(middle);
+		scroll.setBorder(BorderFactory.createEmptyBorder());
 		add(scroll, BorderLayout.CENTER);
 		bottom.add(restart);
+		bottom.add(exit);
 		add(bottom, BorderLayout.SOUTH);
 	}
 	public String unformat(String formatted)
